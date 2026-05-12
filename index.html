@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>РМ Групп — Каталог продукции</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f5f5f5;
+      color: #222;
+    }
+
+    header {
+      background: white;
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: #0d6efd;
+    }
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #0d6efd, #00b4d8);
+      color: white;
+      padding: 100px 50px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 54px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      opacity: 0.9;
+    }
+
+    .catalog {
+      max-width: 1300px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .catalog h2 {
+      font-size: 40px;
+      margin-bottom: 40px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    .card h3 {
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      color: #0d6efd;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .description {
+      color: #666;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #0d6efd;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 30px;
+      margin-top: 60px;
+    }
+
+    @media(max-width: 768px) {
+      header {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+      }
+
+      nav {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      nav a {
+        margin-left: 0;
+        font-size: 15px;
+      }
+
+      .hero {
+        padding: 70px 20px;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+        line-height: 1.2;
+      }
+
+      .hero p {
+        font-size: 17px;
+      }
+
+      .catalog {
+        margin: 40px auto;
+        padding: 0 15px;
+      }
+
+      .catalog h2 {
+        font-size: 30px;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .products {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .card {
+        border-radius: 18px;
+      }
+
+      .card img {
+        height: 220px;
+      }
+
+      .card-content {
+        padding: 18px;
+      }
+
+      .card h3 {
+        font-size: 22px;
+      }
+
+      .price {
+        font-size: 22px;
+      }
+
+      .description {
+        font-size: 15px;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+        padding: 14px;
+      }
+
+      footer {
+        padding: 25px 15px;
+        font-size: 14px;
+      }
+    }
+
+    @media(max-width: 480px) {
+      .logo {
+        font-size: 24px;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .catalog h2 {
+        font-size: 26px;
+      }
+
+      .card img {
+        height: 200px;
+      }
+
+      .card h3 {
+        font-size: 20px;
+      }
+
+      .price {
+        font-size: 20px;
+      }
+    }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+    
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Rm Gruop </div>
+
+    <nav>
+      <a href="#catalog">Каталог</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Каталог товаров</h1>
+    <p>Каталог продукции ОсОО «РМ Групп» с актуальными ценами и описанием</p>
+  </section>
+
+  <section class="catalog" id="catalog">
+    
+    <div class="category-buttons" style="display:flex; gap:15px; flex-wrap:wrap; margin-bottom:40px;">
+      <button class="btn filter-btn" onclick="filterProducts('all')">Все товары</button>
+      <button class="btn filter-btn" style="background:#198754;" onclick="filterProducts('razdelka')">Разделка</button>
+      <button class="btn filter-btn" style="background:#fd7e14;" onclick="filterProducts('polufabrikaty')">Полуфабрикаты</button>
+      <button class="btn filter-btn" style="background:#6f42c1;" onclick="filterProducts('tushka')">Тушка</button>
+    </div>
+
+    <h2 id="group-title">Все товары</h2>
+    <h2>Популярные товары</h2>
+
+    <div class="products">
+
+      <!-- Разделка -->
+
+      <div class="card" data-category="razdelka">
+        <img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?q=80&w=1200&auto=format&fit=crop" alt="филе">
+        <div class="card-content">
+          <h3>Филе куриное</h3>
+          <div class="price">420 сом</div>
+          <div class="description">Свежая разделка куриного филе высокого качества.</div>
+          <a href="#" class="btn">Подробнее</a>
+        </div>
+      </div>
+
+      <div class="card" data-category="razdelka">
+        <img src="https://images.unsplash.com/photo-1587593810167-a84920ea0781?q=80&w=1200&auto=format&fit=crop" alt="бедро">
+        <div class="card-content">
+          <h3>Бедро куриное</h3>
+          <div class="price">350 сом</div>
+          <div class="description">Охлажденное бедро для жарки и запекания.</div>
+          <a href="#" class="btn">Подробнее</a>
+        </div>
+      </div>
+
+      <div class="card" data-category="razdelka">
+        <img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?q=80&w=1200&auto=format&fit=crop" alt="крылья">
+        <div class="card-content">
+          <h3>Крылышки</h3>
+          <div class="price">290 сом</div>
+          <div class="description">Свежие куриные крылышки для гриля.</div>
+          <a href="#" class="btn">Подробнее</a>
+        </div>
+      </div>
+
+      <div class="card" data-category="razdelka">
+        <img src="https://images.unsplash.com/photo-1604503468506-a8da13d82791?q=80&w=1200&auto=format&fit=crop" alt="голень">
+        <div class="card-content">
+          <h3>Голень куриная</h3>
+          <div class="price">310 сом</div>
+          <div class="description">Куриная голень охлажденная.</div>
+          <a href="#" class="btn">Подробнее</a>
+        </div>
+      </div>
+
+      <!-- Полуфабрикаты -->
+
+      <div class="card" data-category="polufabrikaty">
+        <img src="images/d83e08f3-d886-4fa3-a574-7e47b4427729.png" alt="наггетсы">
+        <div class="card-content">
+          <h3>Наггетсы</h3>
+          <div class="price">290 сом</div>
+          <div class="description">Основные компоненты состава:Куриное мясо: Филе цыпленка-бройлера, мясо куриное механического обваливания.Панировка: Пшеничная мука, кукурузная мука, крахмал (пшеничный/картофельный), вода, дрожжи.Жиры: Подсолнечное масло.Специи и добавки: Соль, чесночный порошок, луковый порошок, регулятор кислотности</div>
+          
+        </div>
+      </div>
+
+      <div class="card" data-category="polufabrikaty">
+        <img src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?q=80&w=1200&auto=format&fit=crop" alt="котлеты">
+        <div class="card-content">
+          <h3>Котлеты куриные</h3>
+          <div class="price">340 сом</div>
+          <div class="description">Полуфабрикаты для быстрого приготовления.</div>
+          <a href="#" class="btn">Подробнее</a>
+        </div>
+      </div>
+
+      <div class="card" data-category="polufabrikaty">
+        <img src="https://images.unsplash.com/photo-1606755962773-d324e0a13086?q=80&w=1200&auto=format&fit=crop" alt="стрипсы">
+        <div class="card-content">
+          <h3>Стрипсы</h3>
+          <div class="price">360 сом</div>
+          <div class="description">Куриные стрипсы в панировке.</div>
+          <a href="#" class="btn">Подробнее</a>
+        </div>
+      </div>
+
+      <div class="card" data-category="polufabrikaty">
+        <img src="https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?q=80&w=1200&auto=format&fit=crop" alt="шницель">
+        <div class="card-content">
+          <h3>Шницель</h3>
+          <div class="price">390 сом</div>
+          <div class="description">Готовый куриный шницель.</div>
+          <a href="#" class="btn">Подробнее</a>
+        </div>
+      </div>
+
+      <!-- Тушка -->
+
+      <div class="card" data-category="tushka">
+        <img src="https://images.unsplash.com/photo-1603048297172-c92544798d5a?q=80&w=1200&auto=format&fit=crop" alt="тушка">
+        <div class="card-content">
+          <h3>Тушка куриная</h3>
+          <div class="price">280 сом</div>
+          <div class="description">Свежая охлажденная тушка.</div>
+          <a href="#" class="btn">Подробнее</a>
+        </div>
+      </div>
+
+      <div class="card" data-category="tushka">
+        <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?q=80&w=1200&auto=format&fit=crop" alt="цыпленок">
+        <div class="card-content">
+          <h3>Цыпленок</h3>
+          <div class="price">260 сом</div>
+          <div class="description">Молодой охлажденный цыпленок.</div>
+          <a href="#" class="btn">Подробнее</a>
+        </div>
+      </div>
+
+      <div class="card" data-category="tushka">
+        <img src="https://images.unsplash.com/photo-1547592180-85f173990554?q=80&w=1200&auto=format&fit=crop" alt="суповая">
+        <div class="card-content">
+          <h3>Суповая курица</h3>
+          <div class="price">220 сом</div>
+          <div class="description">Тушка для приготовления бульонов.</div>
+          <a href="#" class="btn">Подробнее</a>
+        </div>
+      </div>
+
+      <!-- дополнительные карточки -->
+
+      <div class="card"><img src="https://images.unsplash.com/photo-1529042410759-befb1204b468?q=80&w=1200&auto=format&fit=crop"><div class="card-content"><h3>Фарш куриный</h3><div class="price">300 сом</div><div class="description">Свежий куриный фарш.</div><a href="#" class="btn">Подробнее</a></div></div>
+
+      <div class="card"><img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?q=80&w=1200&auto=format&fit=crop"><div class="card-content"><h3>Курица гриль</h3><div class="price">450 сом</div><div class="description">Готовая курица гриль.</div><a href="#" class="btn">Подробнее</a></div></div>
+
+      <div class="card"><img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?q=80&w=1200&auto=format&fit=crop"><div class="card-content"><h3>Маринованные крылья</h3><div class="price">370 сом</div><div class="description">Крылья в фирменном маринаде.</div><a href="#" class="btn">Подробнее</a></div></div>
+
+    </div>
+  </section>
+
+  <footer id="contacts">
+    <h3>Контакты</h3>
+    <p>Кыргызская Республика, г. Бишкек, ул. Чайковского 5</p>
+    <p>+996 (778) 722255</p>
+  </footer>
+
+  <script>
+    function filterProducts(category) {
+      const cards = document.querySelectorAll('.card');
+      const title = document.getElementById('group-title');
+
+      const titles = {
+        all: 'Все товары',
+        razdelka: 'Разделка',
+        polufabrikaty: 'Полуфабрикаты',
+        tushka: 'Тушка'
+      };
+
+      title.innerText = titles[category];
+
+      cards.forEach(card => {
+        if(category === 'all') {
+          card.style.display = 'block';
+        } else {
+          if(card.dataset.category === category) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        }
+      });
+    }
+  </script>
+</body>
+</html>
